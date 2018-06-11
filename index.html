@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <title>目录</title>
+    <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="main">
+<p style="text-shadow:1px 1px 5px #fff">目录</p>
+<a href="phonics.html" target="_blank">英语发音</a><br/>
+<br/>
+<a href="irregular.html" target="_blank">例外发音</a><br/>
+<br/>
+<a href="英语音标字体.zip" target="_blank">英语音标字体下载</a><br/>
+<br/>
+<a id="grammars" target="_blank" style="cursor: default">新东方语法视频</a><br/>
+<br/>
+<a id="words" target="_blank" style="cursor: default">新东方单词视频</a><br/>
+<br/>
+<span id="red" onmousedown="nidongde()" onmouseup="nidongde2()" style="color: #6bdcff;cursor: pointer">⛑️施工中...</span><br/>
+<br/>
+</div>
+<img hidden="hidden" src="img/bgimg0.jpg">
+<img hidden="hidden" src="img/bgimg1.jpg">
+<img hidden="hidden" src="img/bgimg2.jpg">
+<img hidden="hidden" src="img/bgimg3.jpg">
+</body>
+<script type="text/javascript">
+    var i=0;
+    function nidongde() {
+        i++;
+        document.getElementById("red").style.color="#c30000";
+        if(i===3){
+            document.getElementById("grammars").href="grammars";
+            document.getElementById("grammars").style.cursor="pointer";
+            document.getElementById("words").href="words";
+            document.getElementById("words").style.cursor="pointer";
+			document.getElementById("words").style.cursor="pointer";
+			document.getElementById("grammars").innerHTML="🎐新东方语法视频";
+			document.getElementById("words").innerHTML="🎐新东方单词视频";
+			document.getElementById("red").innerHTML="🎊施工完毕";
+            i=0;
+        }else{
+            document.getElementById("grammars").removeAttribute("href");
+            document.getElementById("grammars").style.cursor="default";
+            document.getElementById("words").removeAttribute("href");
+			document.getElementById("grammars").innerHTML="新东方语法视频";
+			document.getElementById("words").innerHTML="新东方单词视频";
+			document.getElementById("red").innerHTML="⛑️施工中...";
+            }
+    }
+    function nidongde2() {
+        if(i===0){
+            document.getElementById("red").style.color="#f00";
+        }else {
+            document.getElementById("red").style.color="#6bdcff";
+        }
+    }
+</script>
+</html>

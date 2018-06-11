@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+.bottom {
+    height: 100px;
+    margin: 100px auto 0 auto;
+    bottom: 0;
+    text-align: center;
+    font-family: 微软雅黑;
+}
+
+/*中间主体*/
+.main {
+    width: 901px;
+    margin: 0 auto;
+    padding-top: 50px;
+	overflow: hidden;
+    /*background-color: aquamarine;*/
+}
+
+.title {
+    /*background-color: #fff;*/
+    height: 40px;
+    font-family: 微软雅黑;
+    font-size: 32px;
+    overflow: hidden; /*超出长度的文字隐藏*/
+    text-overflow: ellipsis; /*文字隐藏以后添加省略号*/
+    white-space: nowrap; /*强制不换行*/
+}
+
+/*视频窗口*/
+.videowindow {
+    background-color: black;
+    width: 900px;
+    height: 600px;
+}
+
+.maxbar {
+    margin-top: 10px;
+    height: 120px;
+    position: relative;
+}
+
+.left {
+    width: 25px;
+    height: 120px;
+    left: 0;
+    background-color: #ccc;
+    float: left;
+    z-index: 1;
+    position: relative;
+    background-image: url("../img/images.png");
+    background-repeat: no-repeat;
+    background-position: -75px 0;
+}
+
+.left:hover {
+    position: relative;
+    background-color: #00B5FF;
+    background-image: url("../img/images.png");
+    background-repeat: no-repeat;
+    background-position: -50px 0;
+}
+
+.right {
+    width: 25px;
+    height: 120px;
+    right: 0;
+    background-color: #ccc;
+    float: right;
+    z-index: 1;
+    position: relative;
+    background-image: url("../img/images.png");
+    background-repeat: no-repeat;
+    background-position: -25px 0;
+}
+
+.right:hover {
+    position: relative;
+    background-color: #00B5FF;
+    background-image: url("../img/images.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.centerbar {
+    width: 900px;
+    height: 120px;
+    background-color: black;
+    z-index: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+.movebar {
+    width: auto;
+    height: 120px;
+}
+
+.minbox {
+    width: 176px;
+    height: 120px;
+    margin: 0 2px;
+    float: left;
+    text-align: center;
+}
+
+.minbox:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+#reture {
+    margin-top: 50px;
+    width: 120px;
+    height: 60px;
+    border-radius: 18px;
+    background-color: #5e5e5e;
+    color: #fff;
+    font-size: 45px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#reture:hover {
+    background-color: #f00;
+}
+
+#lisence {
+    color: #404040;
+    text-decoration: none;
+}
