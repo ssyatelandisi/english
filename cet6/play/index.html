@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>*</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/player.css" rel="stylesheet" >
+    <link href="video-js/video-js.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="video-js/video.js"></script>
+    <script src="video-js/videojs-contrib-hls.min.js"></script>
+    <script>
+        videojs.options.flash.swf = "video-js/video-js.swf"
+    </script>
+</head>
+<body>
+<div class="main">
+    <!--视频标题-->
+    <div class="title"></div>
+    <!--视频窗口-->
+    <div class="videowindow">
+        <video id="live-stream" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" poster="" data-setup='{"example_option":true}'>
+            <source src="">
+			浏览器不支持
+        </video>
+    </div>
+    <!--浏览栏窗-->
+    <!--    <div class="maxbar">
+            &lt;!&ndash;左按钮&ndash;&gt;
+            <div class="left">
+
+            </div>
+            &lt;!&ndash;中间窗栏&ndash;&gt;
+            <div class="centerbar">
+                <div class="movebar">
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                    <div class="minbox"></div>
+                </div>
+            </div>
+            &lt;!&ndash;右按钮&ndash;&gt;
+            <div class="right">
+
+            </div>
+        </div>-->
+    <div id="reture" onclick="fanhui()">返回</div>
+</div>
+<div class="bottom">
+    <a id="lisence" href="https://ssyatelandisi.github.io"><span>©2018 <span style="color: #00B5FF;">蜗牛壳</span></span></a>
+</div>
+</body>
+<script>
+    function fanhui() {
+        window.location.href = "../"
+    }
+
+    var alpha = getQueryVariable("title");
+
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+        return (false);
+    }
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.open("GET", "../data/list.xml", false);
+    xmlhttp.send();
+    xmlDoc = xmlhttp.responseXML;
+    var x = xmlDoc.getElementsByTagName("block");
+    for (i = 0, j = 1; i < x.length; i++, j++) {
+        var beta = x[j].getElementsByTagName("url")[0].childNodes[0].nodeValue;
+        if (alpha == beta) {
+            document.getElementsByTagName("title")[0].innerHTML = x[j].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            document.getElementsByClassName("title")[0].innerHTML = x[j].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            document.getElementsByTagName("source")[0].src = x[j].getElementsByTagName("videourl")[0].childNodes[0].nodeValue;
+        }
+    }
+</script>
+<script>
+	var options = {
+		width: 900,
+		height: 600
+	}
+	var player = videojs('live-stream', options);
+	player.on(['loadstart', 'play', 'playing', 'firstplay', 'pause', 'ended', 'adplay', 'adplaying', 'adfirstplay', 'adpause', 'adended', 'contentplay', 'contentplaying', 'contentfirstplay', 'contentpause', 'contentended', 'contentupdate'], function (e) {
+		console.warn('VIDEOJS player event: ', e.type);
+	});
+</script>
+<script type="application/javascript">
+	function foo(n) {
+		return function (i) {
+			return n += i;
+		}
+	}
+	console.log(foo(10)(20));
+</script>
+</html>

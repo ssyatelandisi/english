@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>新东方CET6词汇</title>
+</head>
+<body>
+<div class="main">
+    <h1 style="margin-left: 5px;">
+        新东方CET6词汇
+    </h1>
+    <!--    HTML视频列表模块开始
+            <div class="block" onclick="play()">
+                <div class="view">
+                    <img id="img1" alt="预览图片"/>
+                </div>
+                <span></span>
+                Astroneer&lt;!&ndash;标题&ndash;&gt;
+            </div>
+        HTML视频列表模块结束-->
+    <script>
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("GET", "data/list.xml", false);
+        xmlhttp.send();
+        xmlDoc = xmlhttp.responseXML;
+        var x = xmlDoc.getElementsByTagName("block");
+        for (i = 0, j = 1; i < x.length; i++, j++) {
+            if (i < 22) {
+                document.write("<a href=\"\">");
+                var link = x[j].getElementsByTagName("url")[0].childNodes[0].nodeValue;
+                document.getElementsByTagName("a")[i].href = "play?title=" + link;
+                document.write("<div class=\"block\"><div class=\"view\">");
+                document.write("<img src=\"\" alt=\"预览图片\"/></div>");
+                document.getElementsByTagName("img")[i].src = x[j].getElementsByTagName("image")[0].childNodes[0].nodeValue;
+                document.write("<span></span></div></a>");
+                document.getElementsByTagName("span")[i].innerHTML = x[j].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            }
+        }
+    </script>
+    <!--施工演示模块-->
+    <!--<div class="block">
+        <div class="view">
+            <img src="" alt="预览图片施工中……"/>
+        </div>
+        <span>施工中……</span>
+    </div>-->
+    <!--底部文字展示-->
+
+</div>
+<div class="bottom">
+    <a id="lisence" href="https://ssyatelandisi.github.io"><span>©2018 <span style="color: #00B5FF;">蜗牛壳</span></span></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+.bottom {
+    height: 100px;
+    margin: 100px auto 0 auto;
+    bottom: 0;
+    text-align: center;
+    font-family: 微软雅黑;
+}
+
+/*中间主体*/
+.main {
+    width: 900px;
+    margin: 0 auto;
+    padding-top: 50px;
+	overflow: hidden;
+    /*background-color: aquamarine;*/
+}
+
+/*视频小块*/
+.block {
+    width: 215px;
+    height: 185px;
+    margin: 0 5px 30px 5px;
+    background-color: black;
+    float: left;
+    color: white;
+    font-family: 微软雅黑;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden; /*超出长度的文字隐藏*/
+    text-overflow: ellipsis; /*文字隐藏以后添加省略号*/
+    white-space: nowrap; /*强制不换行*/
+}
+
+/*小块内盒子*/
+.view {
+    width: 215px;
+    height: 160px;
+    /*background-color: red;*/
+    position: relative;
+}
+
+img {
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 215px;
+    height: 160px;
+}
+
+#lisence{
+    color: #404040;
+    text-decoration: none;
+}
